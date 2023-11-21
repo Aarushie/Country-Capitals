@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Capitals</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://i.pinimg.com/originals/fe/77/fc/fe77fc34b1dbb14a923f0426ec656f08.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 90px;
+        font-weight: 700;
+      }
+
+      label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        display: block;
+        color: #fff;
+        font-size: 34px;
+        font-weight: 450;
+      }
+
+      select {
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid white;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 250px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #capital {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: white;
+        font-size: 34px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Country Capitals</h1>
+
+    <label for="countrySelect">Select a Country:</label>
+    <select id="countrySelect" onchange="displayCapital()">
+      <option value="default">Select Country</option>
+      <option value="usa">United States</option>
+      <option value="uk">United Kingdom</option>
+      <option value="france">France</option>
+      <option value="germany">Germany</option>
+      <option value="japan">Japan</option>
+      <option value="canada">Canada</option>
+      <option value="australia">Australia</option>
+      <option value="brazil">Brazil</option>
+      <option value="india">India</option>
+      <option value="china">China</option>
+    </select>
+
+    <p id="capital"></p>
+
+    <script>
+      function displayCapital() {
+        var countrySelect = document.getElementById("countrySelect");
+        var capitalDisplay = document.getElementById("capital");
+
+        // Reset the capital display if "Select Country" is chosen
+        if (countrySelect.value === "default") {
+          capitalDisplay.textContent = "";
+          return;
+        }
+
+        // Define capital for each country
+        var capitals = {
+          usa: "Washington, D.C.",
+          uk: "London",
+          france: "Paris",
+          germany: "Berlin",
+          japan: "Tokyo",
+          canada: "Ottawa",
+          australia: "Canberra",
+          brazil: "Brasília",
+          india: "New Delhi",
+          china: "Beijing",
+        };
+
+        // Display the capital for the selected country
+        capitalDisplay.textContent =
+          "Capital: " + capitals[countrySelect.value];
+      }
+    </script>
+  </body>
+</html>
